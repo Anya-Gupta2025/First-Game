@@ -2,6 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://c3aonf4jvv5td" path="res://scenes/level_1.tscn" id="1_uwrxv"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
+distance = 8.0
+
 [node name="Game" type="Node2D" unique_id=895089549]
 
 [node name="Level 1" parent="." unique_id=1646284670 instance=ExtResource("1_uwrxv")]
+
+[node name="Bottom Boundary" type="StaticBody2D" parent="Level 1" unique_id=1083592141]
+scale = Vector2(6.48, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 1/Bottom Boundary" unique_id=1338325313]
+position = Vector2(86.11111, 170)
+shape = SubResource("WorldBoundaryShape2D_uwrxv")
+
+[node name="Left Boundary" type="StaticBody2D" parent="Level 1" unique_id=1860942385]
+position = Vector2(157, -172.00002)
+rotation = -4.7059197
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 1/Left Boundary" unique_id=57538014]
+position = Vector2(96.162476, 179.38167)
+scale = Vector2(6.5191083, 1)
+shape = SubResource("WorldBoundaryShape2D_uwrxv")
