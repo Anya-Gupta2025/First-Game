@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3aonf4jvv5td"]
 
-[ext_resource type="PackedScene" uid="uid://b0wwnwkrdm1ha" path="res://scenes/player2.tscn" id="2_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://b0wwnwkrdm1ha" path="res://scenes/player.tscn" id="2_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://hlclfoosa5ks" path="res://assets/sprites/world_tileset.png" id="2_rus8k"]
 [ext_resource type="PackedScene" uid="uid://bc1v8f3au3vrp" path="res://scenes/platform.tscn" id="3_rus8k"]
 
