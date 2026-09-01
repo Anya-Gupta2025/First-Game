@@ -6,10 +6,9 @@
 resource_name = "player_move"
 script/source = "extends CharacterBody2D
 
-
+@onready var sprite: AnimatedSprite2D = $sprite
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,10 +22,24 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+		
 	if direction:
 		velocity.x = direction * SPEED
+		
+		# Flip the animation
+		if direction < 0:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
+		
+		# Play run animation
+		sprite.play(\"run\")
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		# Play idle animation
+		sprite.play(\"idle\")
 
 	move_and_slide()
 "
@@ -225,7 +238,7 @@ height = 22.0
 z_index = 5
 script = SubResource("GDScript_3vyb7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=39042684]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=39042684]
 sprite_frames = SubResource("SpriteFrames_sublu")
 animation = &"death"
 autoplay = "idle"
