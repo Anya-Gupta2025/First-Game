@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cedmiickrw1xt"]
 
 [ext_resource type="PackedScene" uid="uid://c3aonf4jvv5td" path="res://scenes/level_1.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://c22t1sxu7gguo" path="res://scenes/killzone.tscn" id="2_yqjtg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 distance = 8.0
@@ -9,11 +10,11 @@ distance = 8.0
 
 [node name="Level 1" parent="." unique_id=1646284670 instance=ExtResource("1_uwrxv")]
 
-[node name="Bottom Boundary" type="StaticBody2D" parent="Level 1" unique_id=1083592141]
-scale = Vector2(6.48, 1)
+[node name="Boundary Killzone" parent="Level 1" unique_id=804395092 instance=ExtResource("2_yqjtg")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 1/Bottom Boundary" unique_id=1338325313]
-position = Vector2(86.11111, 170)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 1/Boundary Killzone" unique_id=1338325313]
+position = Vector2(558, 170)
+scale = Vector2(6.48, 1)
 shape = SubResource("WorldBoundaryShape2D_uwrxv")
 
 [node name="Left Boundary" type="StaticBody2D" parent="Level 1" unique_id=1860942385]
