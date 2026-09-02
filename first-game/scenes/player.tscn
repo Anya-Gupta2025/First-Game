@@ -236,6 +236,7 @@ height = 22.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1415872994]
 z_index = 5
+collision_layer = 2
 script = SubResource("GDScript_3vyb7")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=39042684]
