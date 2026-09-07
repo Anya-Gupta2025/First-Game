@@ -5,10 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://dwv6td1i0opci" path="res://scenes/main_menu.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://bi3i2sxyd4p2" path="res://scenes/hud.tscn" id="4_lbhrr"]
 
+[sub_resource type="GDScript" id="GDScript_uxinp"]
+script/source = "extends Node
+
+var score = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	EventBus.coin_collected.connect(increase_score)
+
+func increase_score():
+	score += 1
+	print(score)
+	EventBus.score_updated.emit(score)
+"
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 distance = 8.0
 
 [node name="Game" type="Node2D" unique_id=895089549]
+
+[node name="Game Manager" type="Node" parent="." unique_id=725142371]
+script = SubResource("GDScript_uxinp")
 
 [node name="Level 1" parent="." unique_id=1646284670 instance=ExtResource("1_uwrxv")]
 
