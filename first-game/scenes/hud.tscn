@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bi3i2sxyd4p2"]
+
+[ext_resource type="Texture2D" uid="uid://cjbdxkwp8iiq3" path="res://assets/sprites/coin.png" id="1_37p78"]
+[ext_resource type="FontFile" uid="uid://c0udlrmuadkt6" path="res://assets/fonts/PixelOperator8.ttf" id="2_oo0fn"]
+
+[sub_resource type="GDScript" id="GDScript_th15o"]
+script/source = "extends Control
+
+@onready var score_label: Label = $CoinTexture/ScoreLabel
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func update_score(score):
+	score_label.text = str(score)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sublu"]
+atlas = ExtResource("1_37p78")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Theme" id="Theme_sublu"]
+default_font = ExtResource("2_oo0fn")
+
+[node name="HUD" type="Control" unique_id=1360817417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_th15o")
+
+[node name="CoinTexture" type="TextureRect" parent="." unique_id=2088945535]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(16.433678, 16.433678)
+texture = SubResource("AtlasTexture_sublu")
+
+[node name="ScoreLabel" type="Label" parent="CoinTexture" unique_id=1471466655]
+layout_mode = 0
+offset_left = 12.656935
+offset_top = 12.900338
+offset_right = 79.65694
+offset_bottom = 118.90034
+scale = Vector2(0.19954666, 0.18658768)
+theme = SubResource("Theme_sublu")
+theme_override_colors/font_color = Color(0.0024555293, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 77
+text = "0"
