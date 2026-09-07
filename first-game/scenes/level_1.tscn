@@ -319,5 +319,5 @@ offset_bottom = -47.0
 theme = SubResource("Theme_sublu")
 theme_override_colors/font_color = Color(1, 0.35771912, 0.69202924, 1)
 theme_override_font_sizes/font_size = 6
-text = "Space for jump
-left and right arrows to move"
+text = "Space for jump, Esc for menu,
+Left and Right arrows to move"

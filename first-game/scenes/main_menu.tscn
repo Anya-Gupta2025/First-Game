@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dwv6td1i0opci"]
+
+[ext_resource type="FontFile" uid="uid://crmi4dklspoy6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_l6cm7"]
+
+[sub_resource type="GDScript" id="GDScript_yb5dr"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	visible = false
+
+
+func toggle_menu():
+	#Show/hide the menu
+	visible = !visible
+	
+	#Pause/unpase game
+	get_tree().paused = visible
+
+
+func _on_restart_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+	
+	
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"Menu\"):
+		toggle_menu()
+"
+
+[node name="Main Menu" type="Control" unique_id=1503848749]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 295.0
+offset_top = 157.0
+offset_right = 295.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.49741036, 0.49741036)
+script = SubResource("GDScript_yb5dr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=53858236]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1673574336]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -184.0
+offset_right = -126.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.7255342, 2.6968043)
+
+[node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=529311046]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.008395317, 0.008664037, 0.007287441, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.18431373, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=498365023]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.008395317, 0.008664037, 0.007287441, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.18431373, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
