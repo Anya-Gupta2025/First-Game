@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://7ctpxvrh25bd"]
+
+[ext_resource type="FontFile" uid="uid://crmi4dklspoy6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_umdnf"]
+
+[sub_resource type="GDScript" id="GDScript_yb5dr"]
+script/source = "extends Control
+
+
+func toggle_win_screen():
+	#Show/hide the menu
+	visible = !visible
+	
+	#Pause/unpase game
+	get_tree().paused = visible
+
+
+func _on_restart_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file(\"res://scenes/game.tscn\")
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umdnf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8372478, 0, 0.2992277, 0.85490197)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.99607843, 0.34509805, 0.5254902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.47420037, 0.31421575, 0.62169755, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0.5686275, 0.9019608, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Main Menu" type="Control" unique_id=1503848749]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 295.0
+offset_top = 157.0
+offset_right = 295.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.49741036, 0.49741036)
+script = SubResource("GDScript_yb5dr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=53858236]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -34.82422
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1673574336]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -184.0
+offset_right = -126.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.7255342, 2.6968043)
+
+[node name="You Win" type="Button" parent="VBoxContainer" unique_id=1827437370]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.7515147, 0.2620068, 1)
+theme_override_colors/font_hover_color = Color(0.41574082, 1.0829419e-07, 0.1982553, 1)
+theme_override_fonts/font = ExtResource("1_umdnf")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_umdnf")
+text = "You win!!"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=529311046]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.008395317, 0.008664037, 0.007287441, 1)
+theme_override_colors/font_hover_color = Color(0.41574082, 1.0829419e-07, 0.1982553, 1)
+theme_override_fonts/font = ExtResource("1_umdnf")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=498365023]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.008395317, 0.008664037, 0.007287441, 1)
+theme_override_colors/font_hover_color = Color(0.1997869, 0.00042898938, 0.47780043, 1)
+theme_override_fonts/font = ExtResource("1_umdnf")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

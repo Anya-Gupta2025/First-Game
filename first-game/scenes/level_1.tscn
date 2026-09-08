@@ -279,7 +279,7 @@ position = Vector2(971, -284)
 position = Vector2(953, -44)
 
 [node name="Winning Fruit" parent="." unique_id=1525941633 instance=ExtResource("6_pa8r4")]
-position = Vector2(151, -8)
+position = Vector2(1031, -323)
 
 [node name="Text" type="Node" parent="." unique_id=431338688]
 
@@ -292,6 +292,16 @@ theme = SubResource("Theme_sublu")
 theme_override_colors/font_color = Color(0, 0.7185592, 0.78044826, 1)
 theme_override_font_sizes/font_size = 6
 text = "Level 1 - Start"
+
+[node name="Label5" type="Label" parent="Text" unique_id=432323361]
+offset_left = 778.0
+offset_top = -319.0
+offset_right = 906.0
+offset_bottom = -296.0
+theme = SubResource("Theme_fcfvj")
+theme_override_colors/font_color = Color(0.8462856, 2.9841065e-06, 0.5188062, 1)
+theme_override_font_sizes/font_size = 6
+text = "Collect the fruit to Win!"
 
 [node name="Label2" type="Label" parent="Text" unique_id=1242243569]
 offset_left = 965.0

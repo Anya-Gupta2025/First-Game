@@ -7,7 +7,8 @@ script/source = "extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file(\"res://scenes/win_screen.tscn\")
+	queue_free()
+	get_tree().change_scene_to_file(\"res://scenes/winning_screen.tscn\")
 	print(\"Winning Fruit Collected!\")
 	# EventBus.winning_fruit_collected.emit()
 "
@@ -44,9 +45,12 @@ script = SubResource("GDScript_xdbvw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2083574357]
 sprite_frames = SubResource("SpriteFrames_u4sca")
 animation = &"Fruit"
+autoplay = "Fruit"
 frame = 1
 frame_progress = 0.4574095
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113217393]
 scale = Vector2(0.80698836, 1)
 shape = SubResource("CircleShape2D_r253k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
