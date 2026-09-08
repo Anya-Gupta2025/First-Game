@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://2ldocv63hkjj"]
+
+[ext_resource type="Texture2D" uid="uid://drp6qyseccoti" path="res://assets/sprites/fruit.png" id="1_aotrx"]
+
+[sub_resource type="GDScript" id="GDScript_xdbvw"]
+script/source = "extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file(\"res://scenes/win_screen.tscn\")
+	print(\"Winning Fruit Collected!\")
+	# EventBus.winning_fruit_collected.emit()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk36q"]
+atlas = ExtResource("1_aotrx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jislj"]
+atlas = ExtResource("1_aotrx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4sca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk36q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jislj")
+}],
+"loop": 1,
+"name": &"Fruit",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r253k"]
+radius = 8.0
+
+[node name="Winning Fruit" type="Area2D" unique_id=1525941633]
+collision_mask = 2
+script = SubResource("GDScript_xdbvw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2083574357]
+sprite_frames = SubResource("SpriteFrames_u4sca")
+animation = &"Fruit"
+frame = 1
+frame_progress = 0.4574095
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113217393]
+scale = Vector2(0.80698836, 1)
+shape = SubResource("CircleShape2D_r253k")

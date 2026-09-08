@@ -33,6 +33,54 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		toggle_menu()
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8372478, 0, 0.2992277, 0.85490197)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.99607843, 0.34509805, 0.5254902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.47420037, 0.31421575, 0.62169755, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0.5686275, 0.9019608, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Main Menu" type="Control" unique_id=1503848749]
 process_mode = 3
 layout_mode = 3
@@ -53,6 +101,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -34.82422
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -75,18 +124,22 @@ scale = Vector2(2.7255342, 2.6968043)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.008395317, 0.008664037, 0.007287441, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.18431373, 0.9490196, 1)
+theme_override_colors/font_hover_color = Color(0.41574082, 1.0829419e-07, 0.1982553, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
 text = "Restart"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=498365023]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.008395317, 0.008664037, 0.007287441, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.18431373, 0.9490196, 1)
+theme_override_colors/font_hover_color = Color(0.1997869, 0.00042898938, 0.47780043, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
