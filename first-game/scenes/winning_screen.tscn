@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://7ctpxvrh25bd"]
 
 [ext_resource type="FontFile" uid="uid://crmi4dklspoy6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_umdnf"]
+[ext_resource type="FontFile" uid="uid://c0udlrmuadkt6" path="res://assets/fonts/PixelOperator8.ttf" id="2_pyq4r"]
 
 [sub_resource type="GDScript" id="GDScript_yb5dr"]
 script/source = "extends Control
 
+var score = 0
+
+@onready var score_label: Label = $VBoxContainer/Label
+
+func update_score():
+	score_label.text = str(score)
 
 func toggle_win_screen():
 	#Show/hide the menu
@@ -12,6 +19,8 @@ func toggle_win_screen():
 	
 	#Pause/unpase game
 	get_tree().paused = visible
+	# Called when the node enters the scene tree for the first time.
+	EventBus.score_updated.connect(update_score)
 
 
 func _on_restart_button_pressed() -> void:
@@ -153,6 +162,13 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 text = "Exit"
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2130377478]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.6509804, 0, 1)
+theme_override_fonts/font = ExtResource("2_pyq4r")
+text = "Score: "
 
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
